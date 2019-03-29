@@ -3,21 +3,19 @@ using namespace std;
 int n=5;
 int poz=1;
 int M[100]={35565,533,244,104,87,18};
+int heap[100];
 
-
-int find_heap(int nume_nod,int heap_size,int value)
+int insert_into_heap(int value)
 {
-        if(nume_nod<=heap_size)
-        {
-          cout<<poz<<" ";
-            poz=poz*10+1;
-        find_heap(nume_nod*2, heap_size, value);
-        poz=(poz/10)*10;
-        find_heap(nume_nod*2+1, heap_size, value);}
+    while(value<=n)
+    {
+        heap[value]=M[value];
+        value++;
+    }
 }
-
 int main()
 {
-   cout<<"Some huffman code : "<<endl;
-   find_heap(1,n,87);
+     insert_into_heap(1);
+    for(int i=1;i<=n;i++)
+      cout<<heap[i]<<" ";
 }
